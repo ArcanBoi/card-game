@@ -92,7 +92,7 @@ function greet() {
 // 1. declare a function called compare that takes two cards as arguments
 function compare(a, b) {
     // 2. return the value property of the first card minus the value property of the second card.
-    return (a.value -= b.value);
+    return (a.value - b.value);
 }
 
 
@@ -104,7 +104,7 @@ function guess(current, next) {
     // 2. console.log the rank and suit of the current card
     console.log(current.name);
     // 3. declare a variable called "input" that uses getInput() to ask the user if they think the next card will be higher (h) or lower (l) than their current card and stores the user's response.
-    let input = getInput("Will the next card be higher (h) or lower (l)?");
+    let input = getInput("Will the next card be higher (h) or lower (l)?").toLowerCase();
     // 4. use a conditional statement to see if "input" equals "h" or "l".
     if (input == "h" || input == "higher") {
         // 5. If input equals h, return an expression that checks if the outcome of the compare function (using the same arguments as you used for guess) is a negative number.
@@ -114,7 +114,7 @@ function guess(current, next) {
         return compare(current, next) >= 0;
     } else {
         // 7. If input doesn't equal h or l, tell the user that they need to guess either h or l and that they get no points for this round, then return false.
-        console.log("Invalid response. No point for this round.\nPlease guess higher (h) or lower (l).")
+        console.log("!! Invalid response. No point for this round.\nPlease guess higher (h) or lower (l). !!")
     }
 
 }
