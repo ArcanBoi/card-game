@@ -102,7 +102,7 @@ function compare(a, b) {
 // 1. declare a function called guess that takes two cards as arguments
 function guess(current, next) {
     // 2. console.log the rank and suit of the current card
-    console.log(current.name);
+    console.log(`\n-----:{ ${current.name} }:-----\n`);
     // 3. declare a variable called "input" that uses getInput() to ask the user if they think the next card will be higher (h) or lower (l) than their current card and stores the user's response.
     let input = getInput("Will the next card be higher (h) or lower (l)?").toLowerCase();
     // 4. use a conditional statement to see if "input" equals "h" or "l".
@@ -114,7 +114,7 @@ function guess(current, next) {
         return compare(current, next) >= 0;
     } else {
         // 7. If input doesn't equal h or l, tell the user that they need to guess either h or l and that they get no points for this round, then return false.
-        console.log("!! Invalid response. No point for this round.\nPlease guess higher (h) or lower (l). !!")
+        console.log("[ Invalid response. No point for this round. ]\nPlease guess higher (h) or lower (l).")
     }
 
 }
@@ -124,7 +124,7 @@ function guess(current, next) {
 function playGame() {
     // 2. declare a variable called deck (it's okay to reuse -- remember scope!) that takes the result of the shuffle function. Remember that the shuffle function needs to take the results one of our other functions as its argument...
     let deck = shuffle(buildDeck());
-    console.log(deck);
+    // console.log(deck);
     // 3. declare a variable called playerName that takes the result of the greet function as its value.
     let name = greet();
     // 4. using let, declare a score variable that's currently set to the number zero
@@ -137,7 +137,7 @@ function playGame() {
         // 7. Inside the while loop, use an array method on deck to remove the last object and assign that value to a variable named nextCard.
         let nextCard = deck.pop();
         // 8. Inside the while loop, create a conditional statement. If the outcome of guess is true, increment the score by 1, congratulate the user, and tell them their score. If it's false, tell them they were wrong and got no points.
-        console.log({ currentCard }, { nextCard });
+        // console.log({ currentCard }, { nextCard });
         if (guess(currentCard, nextCard)) {
             score++;
             console.log(`
@@ -145,7 +145,7 @@ function playGame() {
           Your score: ${score}
           `)
         } else {
-            console.log('Sorry! No point for you. Try again.');
+            console.log('\nSorry! No point for you. Try again.\n');
         }
 
         // 9. Close the conditional statement and assign nextCard to currentCard. You may have to write this as the type of variable that's always global...
