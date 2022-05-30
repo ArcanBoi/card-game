@@ -21,13 +21,13 @@ function buildDeck() {
     for (let i = 0; i < suits.length; i++) {
         for (let j = 0; j < ranks.length; j++) {
             // 6. inside your inner for loop, push your looped iterations of ranks and suits as OBJECTS into the empty deck array. Add a third property to this object with the key "value" and the value equal to the current iterator.
-            let card = {};
-            card['name'] = `${ranks[j]} of ${suits[i]}s`;
-            card['suit'] = suits[i];
-            card['rank'] = ranks[j];
-            card['value'] = j;
 
-            deck.push(card);
+            deck.push({
+                name: `${ranks[j]} of ${suits[i]}s`,
+                suit: suits[i],
+                rank: ranks[j],
+                value: j
+            });
 
         }
     }
@@ -94,8 +94,6 @@ function compare(a, b) {
     // 2. return the value property of the first card minus the value property of the second card.
     return (a.value - b.value);
 }
-
-
 
 
 // STEP FIVE - Respond to User Guess
